@@ -1,5 +1,6 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import { GoogleLogin } from "@react-oauth/google";
 
 function App() {
   return (
@@ -17,6 +18,15 @@ function App() {
         >
           Learn React
         </a>
+        <GoogleLogin
+          onSuccess={(credentialResponse) => {
+            console.log(credentialResponse);
+          }}
+          onError={() => {
+            console.log("Login Failed");
+          }}
+        />
+        ;
       </header>
     </div>
   );
